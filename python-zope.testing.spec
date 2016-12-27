@@ -1,8 +1,9 @@
+%define	module	zope.testing
 Summary:	Support for different testing frameworks
 Summary(pl.UTF-8):	Obsługa różnych szkieletów testowych
-Name:		Zope-Testing
+Name:		python-%{module}
 Version:	3.10.2
-Release:	4
+Release:	1
 License:	ZPL 2.1
 Group:		Libraries/Python
 Source0:	http://pypi.python.org/packages/source/z/zope.testing/zope.testing-%{version}.tar.gz
@@ -13,6 +14,7 @@ BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.710
 %pyrequires_eq	python-modules
+Obsoletes:	Zope-Testing
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -25,7 +27,7 @@ narzędzie do uruchamiania testów, obsługuje zarówno doctest jak i
 unittest.
 
 %prep
-%setup -q -n zope.testing-%{version}
+%setup -q -n %{module}-%{version}
 
 %build
 %py_build
@@ -34,9 +36,7 @@ unittest.
 rm -rf $RPM_BUILD_ROOT
 
 %py_install \
-	--install-purelib=%{py_sitedir} \
-	--optimize 2 \
-	--root=$RPM_BUILD_ROOT
+	--install-purelib=%{py_sitedir}
 
 %py_postclean
 
