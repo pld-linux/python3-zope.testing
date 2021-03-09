@@ -11,7 +11,7 @@ Summary:	Support for different testing frameworks
 Summary(pl.UTF-8):	Obsługa różnych szkieletów testowych
 Name:		python-%{module}
 Version:	4.7
-Release:	2
+Release:	3
 License:	ZPL v2.1
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/zope-testing/
@@ -32,6 +32,7 @@ BuildRequires:	rpmbuild(macros) >= 1.714
 Requires:	python-modules >= 1:2.7
 Requires:	python-zope-base
 Obsoletes:	Zope-Testing
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -74,19 +75,19 @@ rm -rf $RPM_BUILD_ROOT
 
 %if %{with python2}
 %py_install \
-	--install-purelib=%{py_sitedir}
+	--install-purelib=%{py_sitescriptdir}
 
 %py_postclean
 # tests
-%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/zope/testing/{test_renormalizing,tests}.py*
+%{__rm} $RPM_BUILD_ROOT%{py_sitescriptdir}/zope/testing/{test_renormalizing,tests}.py*
 %endif
 
 %if %{with python3}
 %py3_install \
-	--install-purelib=%{py3_sitedir}
+	--install-purelib=%{py3_sitescriptdir}
 
 # tests
-%{__rm} $RPM_BUILD_ROOT%{py3_sitedir}/zope/testing/{test_renormalizing,tests}.py*
+%{__rm} $RPM_BUILD_ROOT%{py3_sitescriptdir}/zope/testing/{test_renormalizing,tests}.py*
 %endif
 
 %clean
@@ -96,16 +97,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGES.rst COPYRIGHT.txt LICENSE.txt README.rst
-%{py_sitedir}/zope/testing
-%{py_sitedir}/zope.testing-%{version}-py*.egg-info
-%{py_sitedir}/zope.testing-%{version}-py*-nspkg.pth
+%{py_sitescriptdir}/zope/testing
+%{py_sitescriptdir}/zope.testing-%{version}-py*.egg-info
+%{py_sitescriptdir}/zope.testing-%{version}-py*-nspkg.pth
 %endif
 
 %if %{with python3}
 %files -n python3-%{module}
 %defattr(644,root,root,755)
 %doc CHANGES.rst COPYRIGHT.txt LICENSE.txt README.rst
-%{py3_sitedir}/zope/testing
-%{py3_sitedir}/zope.testing-%{version}-py*.egg-info
-%{py3_sitedir}/zope.testing-%{version}-py*-nspkg.pth
+%{py3_sitescriptdir}/zope/testing
+%{py3_sitescriptdir}/zope.testing-%{version}-py*.egg-info
+%{py3_sitescriptdir}/zope.testing-%{version}-py*-nspkg.pth
 %endif
