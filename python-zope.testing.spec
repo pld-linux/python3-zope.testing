@@ -29,7 +29,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 Requires:	python-modules >= 1:2.7
 Requires:	python-zope-base
-Obsoletes:	Zope-Testing < 3.6.0
+Obsoletes:	Zope-Testing < 4
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
