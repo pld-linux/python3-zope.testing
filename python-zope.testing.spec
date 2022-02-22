@@ -4,19 +4,17 @@
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
 
-%define		_enable_debug_packages	0
-
 %define	module	zope.testing
 Summary:	Support for different testing frameworks
 Summary(pl.UTF-8):	Obsługa różnych szkieletów testowych
 Name:		python-%{module}
-Version:	4.7
-Release:	3
+Version:	4.9
+Release:	1
 License:	ZPL v2.1
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/zope-testing/
 Source0:	https://files.pythonhosted.org/packages/source/z/zope.testing/zope.testing-%{version}.tar.gz
-# Source0-md5:	13b45a1c9ec987e75a3f9e83b50d22a4
+# Source0-md5:	35d3b8a163874bfc18a084534b52e186
 URL:		https://www.zope.org/
 %if %{with python2}
 BuildRequires:	python >= 1:2.7
@@ -31,7 +29,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 Requires:	python-modules >= 1:2.7
 Requires:	python-zope-base
-Obsoletes:	Zope-Testing
+Obsoletes:	Zope-Testing < 3.6.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
