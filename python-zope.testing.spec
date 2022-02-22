@@ -21,8 +21,8 @@ BuildRequires:	python >= 1:2.7
 BuildRequires:	python-devel >= 1:2.7
 %endif
 %if %{with python3}
-BuildRequires:	python3-devel >= 1:3.3
-BuildRequires:	python3-modules >= 1:3.3
+BuildRequires:	python3-devel >= 1:3.5
+BuildRequires:	python3-modules >= 1:3.5
 BuildRequires:	python3-setuptools
 %endif
 BuildRequires:	rpm-pythonprov
@@ -45,7 +45,7 @@ doctest jak i unittest.
 Summary:	Support for different testing frameworks
 Summary(pl.UTF-8):	Obsługa różnych szkieletów testowych
 Group:		Libraries/Python
-Requires:	python3-modules >= 1:3.3
+Requires:	python3-modules >= 1:3.5
 Requires:	python3-zope-base
 
 %description -n python3-%{module}
