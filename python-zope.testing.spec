@@ -9,7 +9,7 @@ Summary:	Support for different testing frameworks
 Summary(pl.UTF-8):	Obsługa różnych szkieletów testowych
 Name:		python-%{module}
 Version:	4.9
-Release:	3
+Release:	4
 License:	ZPL v2.1
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/zope-testing/
